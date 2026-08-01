@@ -1,173 +1,106 @@
 @import '../../../../vendor/filament/filament/resources/css/theme.css';
 
-/* ==========================================================
-   Tailwind Sources
-========================================================== */
-
 @source "../../../../app";
 @source "../../../../resources/views";
 
 /* ==========================================================
-   Background
+   Light & Dark Theme Support
 ========================================================== */
 
+/* Smooth transitions */
 .fi-body,
-.fi-page {
+.fi-page,
+.fi-sidebar,
+.fi-topbar,
+.fi-section,
+.fi-ta,
+.fi-btn {
+    transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+
+/* ==========================================================
+   Dark Mode Only
+========================================================== */
+
+.dark .fi-body,
+.dark .fi-page {
     @apply bg-slate-950;
 }
 
-/* ==========================================================
-   Layout Fixes
-========================================================== */
-
-/* إخفاء عنوان لوحة التحكم */
-.fi-header-heading {
-    display: none !important;
-}
-
-/* إزالة الفراغ أسفل الهيدر */
-.fi-header {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-/* إزالة أي فراغ علوي */
-.fi-main,
-.fi-page {
-    padding-top: 0 !important;
-}
-
-/* ==========================================================
-   Sidebar
-========================================================== */
-
-.fi-sidebar {
+.dark .fi-sidebar {
     @apply bg-slate-950 border-slate-800;
 }
 
-.fi-topbar {
+.dark .fi-topbar {
     @apply bg-slate-950 border-slate-800;
 }
 
+.dark .fi-section,
+.dark .fi-widget,
+.dark .fi-card {
+    @apply bg-slate-900 border border-slate-800 rounded-2xl shadow-lg;
+}
+
+.dark .fi-section-header {
+    @apply bg-slate-900;
+}
+
+.dark .fi-section-content {
+    @apply bg-slate-900;
+}
+
+.dark .fi-section-header-heading {
+    @apply text-white;
+}
+
+.dark .fi-ta {
+    @apply bg-slate-900 border border-slate-800 rounded-3xl;
+}
+
+.dark .fi-ta-header {
+    @apply bg-slate-800;
+}
+
+.dark .fi-ta-header-cell {
+    @apply text-white;
+}
+
+.dark .fi-wi-stats-overview-stat {
+    @apply bg-slate-900 border border-slate-800 rounded-2xl;
+}
+
+.dark .fi-wi-stats-overview-stat-value {
+    @apply text-white;
+}
+
+.dark .fi-wi-stats-overview-stat-label {
+    @apply text-slate-300;
+}
+
 /* ==========================================================
-   General Widgets
-========================================================== */
-
-.fi-section,
-.fi-widget,
-.fi-card {
-    @apply rounded-2xl bg-slate-900 border border-slate-800 shadow-lg;
-}
-
-.fi-widget {
-    transition: all .25s ease;
-}
-
-.fi-widget:hover {
-    transform: translateY(-4px);
-}
-
-/* ==========================================================
-   Buttons
+   Shared Style
 ========================================================== */
 
 .fi-btn {
     @apply rounded-xl;
 }
 
-/* ==========================================================
-   Stats Cards
-========================================================== */
-
-.fi-wi-stats-overview {
-    gap: 0.75rem;
+.fi-badge {
+    @apply rounded-xl;
 }
 
-.fi-wi-stats-overview-stat {
-    @apply bg-slate-900 rounded-2xl border border-slate-800;
-    transition: all .25s ease;
+.fi-widget {
+    transition: transform .25s ease;
 }
 
-.fi-wi-stats-overview-stat:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, .35);
-}
-
-.fi-wi-stats-overview-stat-value {
-    @apply text-5xl font-extrabold text-white;
-}
-
-.fi-wi-stats-overview-stat-label {
-    @apply text-slate-300 font-bold;
-}
-
-.fi-wi-stats-overview-stat-description {
-    @apply text-sm;
-}
-
-.fi-wi-stats-overview-stat-icon {
-    @apply rounded-full bg-slate-800 p-3;
-}
-
-/* ==========================================================
-   Tables
-========================================================== */
-
-.fi-ta {
-    @apply rounded-3xl overflow-hidden bg-slate-900 border border-slate-800;
-}
-
-.fi-ta-header {
-    @apply bg-slate-800;
-}
-
-.fi-ta-header-cell {
-    @apply text-white font-bold;
-}
-
-.fi-ta-row {
-    transition: background-color .2s ease;
+.fi-widget:hover {
+    transform: translateY(-4px);
 }
 
 .fi-ta-row:hover {
-    background: rgba(245, 158, 11, .05);
+    background: rgba(245,158,11,.06);
 }
 
-.fi-ta-cell {
-    @apply py-5;
-}
-
-.fi-ta-table {
-    @apply rounded-3xl overflow-hidden;
-}
-
-/* ==========================================================
-   Badges
-========================================================== */
-
-.fi-badge {
-    @apply rounded-xl px-3 py-1 font-bold;
-}
-
-/* ==========================================================
-   Sections
-========================================================== */
-
-.fi-section {
-    @apply rounded-2xl;
-    border-radius: 22px;
-}
-
-.fi-section-header {
-    @apply bg-slate-900;
-    padding: 1rem 1.25rem;
-}
-
-.fi-section-header-heading {
-    @apply text-xl font-bold text-white;
-}
-
-.fi-section-content {
-    @apply bg-slate-900;
-    padding: 0.75rem 1rem;
+.fi-header-heading {
+    display: none;
 }
